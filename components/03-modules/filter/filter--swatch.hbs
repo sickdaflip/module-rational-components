@@ -1,0 +1,31 @@
+<li class="dropdown-list__item dropdown-list__item--collapse filter {{ class }}">
+    <button
+        type="button"
+        class="dropdown-list__label filter__label"
+        aria-controls="{{ id }}"
+        aria-expanded="false"
+    >
+        {{ render '@heading' title }}
+        {{ render '@icon' icon }}
+    </button>
+    <div
+        id="{{ id }}"
+        class="dropdown-list__content filter__content"
+        aria-hidden="true"
+    >
+        <ul class="list filter__list" {{{ attributes }}}>
+            {{#each options }}
+                <li class="filter__swatch-item">
+                    <a
+                        href="{{ href }}"
+                        class="filter__swatch-option {{ class }}"
+                        {{{ attributes }}}
+                    >
+                        {{ text }}
+                    </a>
+                </li>
+            {{/each }}
+        </ul>
+        <div class="filter__divider"></div>
+    </div>
+</li>

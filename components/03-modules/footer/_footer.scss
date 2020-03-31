@@ -1,0 +1,192 @@
+$footer__padding                       : $spacer--medium !default;
+$footer__background-color              : scale-color($color-primary, $lightness: -30%) !default;
+$footer__background-color\@large       : scale-color($color-primary, $lightness: -30%) !default;
+
+$footer__b2b-attention-padding         : 0 $spacer--medium !default;
+
+$footer__link-color                    : $white !default;
+$footer__link-color-hover              : $color-secondary !default;
+$footer__link-text-decoration-hover    : none !default;
+
+$footer__link-inner-padding            : $spacer--medium !default;
+
+$footer__bottom-bar-background         : scale-color($color-primary, $lightness: -50%) !default;
+$footer__bottom-bar-background\@large  : scale-color($color-primary, $lightness: -50%) !default;
+$footer__bottom-bar-color              : $white !default;
+$footer__bottom-bar-font-size          : $font-size-small !default;
+
+$footer__social-handl-margin           : 0 0 $spacer 0 !default;
+$footer__social-handl-margin\@medium   : 0 !default;
+
+$footer__social-icon-color             : $white !default;
+
+$footer__copywrite-padding             : $spacer--medium;
+
+$footer__scroll-top-top                : -24px !default;
+$footer__icon-size                     : 13px !default;
+$footer__icon-fill                     : $white !default;
+$footer__icon-fill-hover               : $color-secondary !default;
+
+
+.footer {
+    flex-shrink: 0;
+    background-color: $footer__background-color;
+
+    p {
+        color: $white;
+    }
+
+    @include mq($screen-l) {
+        background-color: $footer__background-color\@large;
+    }
+
+    &__handler {
+        margin: 0 auto $footer__padding;
+        padding-top: $footer__padding;
+        position: relative;
+
+        @include mq($screen-m) {
+            margin: 0 auto;
+        }
+
+        @include mq($screen-l) {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    }
+
+    &__info {
+        margin: 0 auto $footer__padding;
+        padding: $footer__b2b-attention-padding;
+
+        img {
+            width: 144px;
+            display: inline-block;
+        }
+
+        @include mq($screen-l) {
+            order: 1;
+            padding-top: $footer__padding;
+        }
+    }
+
+    &__b2b-attention {
+        margin: 0 auto $footer__padding;
+        padding: $footer__b2b-attention-padding;
+
+        @include mq($screen-l) {
+            order: 2;
+            padding-top: $footer__padding;
+        }
+    }
+
+    &__links {
+        .dropdown-list {
+            @include mq($screen-m) {
+                padding: 0;
+            }
+        }
+
+        .dropdown-list__item {
+            @include mq($screen-m) {
+                border-bottom: 0;
+            }
+        }
+
+        .list__item {
+            padding-left: $footer__link-inner-padding;
+            @include mq($screen-m) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__links-list {
+        padding-bottom: $footer__padding;
+    }
+
+    &__link {
+        color: $footer__link-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $footer__link-color-hover;
+            text-decoration: $footer__link-text-decoration-hover;
+        }
+        &:focus {
+            @include focus-inline;
+        }
+    }
+
+    &__bottom-bar {
+        color: $footer__bottom-bar-color;
+        background-color: $footer__bottom-bar-background;
+        @include mq($screen-l) {
+            background-color: $footer__bottom-bar-background\@large;
+        }
+    }
+
+    &__bottom-bar-handler {
+        @include mq($screen-m) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__social-handler {
+        margin: $footer__social-handl-margin;
+
+        .list__icon-link {
+            &:focus {
+                @include focus('dark');
+            }
+        }
+
+        @include mq($screen-m) {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            order: 1;
+            margin: $footer__social-handl-margin\@medium;
+        }
+    }
+
+    &__social-list-subtitle {
+        display: none;
+        @include mq($screen-m) {
+            display: block;
+            margin-right: $footer__padding;
+            font-size: $footer__bottom-bar-font-size;
+        }
+    }
+
+    &__social-icon {
+        fill: $footer__social-icon-color;
+    }
+
+    &__copyright {
+        display: block;
+        padding: $footer__copywrite-padding;
+        font-size: $footer__bottom-bar-font-size;
+        text-align: center;
+    }
+
+    &__scroll-top {
+        position: absolute;
+        right: 0;
+        top: $footer__scroll-top-top;
+
+        &:hover {
+            .footer__icon {
+                fill: $footer__icon-fill-hover;
+            }
+        }
+    }
+
+    &__icon {
+        width: $footer__icon-size;
+        height: $footer__icon-size;
+        fill: $footer__icon-fill;
+    }
+}

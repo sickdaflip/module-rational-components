@@ -1,0 +1,59 @@
+<{{{ tag }}} class="catalog-grid-item {{ class }}" tabindex="0">
+    {{#if badge}}
+        {{ render (component badge.name) badge.context }}
+    {{/if}}
+
+    <a
+        href="#"
+        class="catalog-grid-item__link"
+        tabindex="-1"
+    >
+        {{ render '@image' image merge=true }}
+    </a>
+
+    <section class="catalog-grid-item__details">
+        <h2 class="catalog-grid-item__name">
+            <a
+                href="#"
+                class="catalog-grid-item__name-link"
+            >
+                {{ name }}
+            </a>
+        </h2>
+
+        <div class="catalog-grid-item__price">
+            {{ render (component price.name) price.context }}
+        </div>
+
+        {{#if rating }}
+            {{ render '@rating' rating merge=true }}
+        {{/if }}
+
+        {{#if swatches }}
+            <div class="catalog-grid-item__options">
+                {{ render '@swatch' }}
+                {{ render '@swatch--image' }}
+            </div>
+        {{/if }}
+
+        <div class="catalog-grid-item__actions">
+            <form action="#" class="catalog-grid-item__primary-form">
+                {{ render '@button' primaryAction }}
+            </form>
+
+            <div class="catalog-grid-item__secondary-action">
+                {{
+                    render '@button--icon'
+                    secondaryActions.wishlist
+                    merge=true
+                }}
+
+                {{
+                    render '@button--icon'
+                    secondaryActions.compare
+                    merge=true
+                }}
+            </div>
+        </div>
+    </section>
+</{{{ tag }}}>

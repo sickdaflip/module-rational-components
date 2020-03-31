@@ -1,0 +1,45 @@
+<div class="filters {{ class }}" {{{ attributes }}}>
+    <h2 class="filters__heading">
+        {{ activeFiltersHeading }}
+    </h2>
+    {{ render '@button' skip }}
+    {{> '@divider' divider}}
+
+    <div class="filters__active">
+        {{ render '@active-filters' }}
+    </div>
+
+    <button
+        type="button"
+        class="filters__switcher"
+        data-state-current="hidden"
+    >
+        Shopping Options
+        {{ render '@icon' switcherIcon }}
+    </button>
+
+    <div
+        class="
+            filters__list
+            filters__list--mobile-hidden
+            dropdown-list
+            {{ dropdownList.class }}
+        "
+        {{{ dropdownList.attributes }}}
+    >
+        <h2 class="filters__heading filters__heading--mobile-hidden">
+            {{ allFiltersHeading }}
+        </h2>
+        {{> '@divider' divider }}
+        <ul class="dropdown-list__list">
+            {{ render '@filter--category' }}
+            {{ render '@filter--checkbox' }}
+            {{ render '@filter--swatch' }}
+            {{ render '@filter--color' }}
+            {{ render '@filter--range' }}
+        </ul>
+    </div>
+</div>
+
+<script src="{{static '../filters/filters.js'}}"></script>
+<script src="{{static '../dropdown-list/dropdown-list.js'}}"></script>

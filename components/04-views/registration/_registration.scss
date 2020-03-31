@@ -1,0 +1,60 @@
+$registration__padding-top                                  : $spacer--medium !default;
+
+$registration__content-margin                               : 0 0 $spacer--extra-large !default;
+$registration__input-margin                                 : 0 0 $spacer--medium !default;
+
+$registration__fieldset-margin                              : 0 0 $spacer--medium !default;
+
+$registration__legend-font-size                             : $font-size-base !default;
+$registration__legend-font-weight                           : $font-weight-bold !default;
+$registration__legend-margin                                : 0 !default;
+$registration__legend-padding                               : 0 0 $spacer--medium 0 !default;
+$registration__legend-width                                 : 100% !default;
+
+$registration__newsletter-checkbox-checked-label-font-weight: $font-weight-bold !default;
+
+$registration__password-wrapper-margin                      : 0 0 $spacer--medium !default;
+$registration__password-margin                              : 0 !default;
+
+.registration {
+    padding-top: $registration__padding-top;
+
+    &__divider {
+        margin-bottom: $spacer--large;
+    }
+
+    &__content {
+        margin: $registration__content-margin;
+    }
+
+    &__input {
+        margin: $registration__input-margin;
+    }
+
+    &__legend {
+        position: relative;
+        margin: $registration__legend-margin;
+        padding: $registration__legend-padding;
+        width: $registration__legend-width;
+        font-size: $registration__legend-font-size;
+        font-weight: $registration__legend-font-weight;
+    }
+
+    &__fieldset {
+        margin: $registration__fieldset-margin;
+    }
+
+    &__newsletter-checkbox-field {
+        &:checked ~ .checkbox__label {
+            font-weight: $registration__newsletter-checkbox-checked-label-font-weight;
+        }
+    }
+
+    &__password-wrapper {
+        margin: $registration__password-wrapper-margin;
+    }
+
+    &__password {
+        margin: $registration__password-margin;
+    }
+}

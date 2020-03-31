@@ -1,0 +1,51 @@
+<div class="toolbar {{ class }}" {{{ attributes }}}>
+    {{#if showMode }}
+        <div class="toolbar__mode">
+            <a
+                href="{{grid.href}}"
+                class="toolbar__mode-button"
+                aria-label="Change to grid view"
+            >
+                {{ render '@icon' grid.icon }}
+            </a>
+            <a
+                href="{{list.href}}"
+                class="toolbar__mode-button"
+                aria-label="Change to list view"
+            >
+                {{ render '@icon' list.icon }}
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if showSorter }}
+        <div class="toolbar__sorter">
+            {{render '@select' sortBy }}
+        </div>
+    {{/if}}
+
+    {{#if showAmount }}
+        <div class="{{ amount.class }}">
+            <span class="toolbar__amount-content">
+                {{ amount.prefix }} {{ amount.currentRange }} {{ amount.preposition }}
+                {{ amount.total }}
+            </span>
+        </div>
+    {{/if}}
+
+    {{#if showLimit }}
+        <div class="{{ limiter.class }}">
+            {{> '@select' limiter.select }}
+            <span class="toolbar__limiter-suffix">
+                {{ limiter.suffix }}
+            </span>
+        </div>
+    {{/if}}
+
+    {{#if showPager }}
+        <div class="toolbar__pager">
+            {{ render '@pager' pager merge=true }}
+        </div>
+    {{/if}}
+</div>
+

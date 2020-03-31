@@ -1,0 +1,22 @@
+$b2b-attention__font-size                  : $font-size-base !default;
+$b2b-attention__font-size--agreements      : $font-size-small !default;
+$b2b-attention__line-height                : 1.2 !default;
+$b2b-attention__heading-color              : $white !default;
+$b2b-attention__controls-height            : 32px !default;
+$b2b-attention__bottom-gap                 : $spacer--medium !default;
+$b2b-attention__button-padding             : 21px !default;
+$b2b-attention__heading-margin             : 0 20px $b2b-attention__bottom-gap 0 !default;
+
+
+.b2b-attention {
+    &__heading {
+        line-height: $b2b-attention__line-height;
+        color: $b2b-attention__heading-color;
+        height: auto;
+        font-size: $b2b-attention__font-size;
+        font-weight: $font-weight-bold;
+        text-align: left;
+        margin: $b2b-attention__heading-margin;
+    }
+
+}

@@ -1,0 +1,28 @@
+<footer class="footer {{ class }}" {{{ attributes }}}>
+    <div class="footer__handler row {{ handlerClass }}">
+    {{ render '@button--icon' scrollToTop }}
+        <section class="footer__newsletter col-xs-12 col-lg-3">
+            {{ render '@newsletter' }}
+        </section>
+        <section class="footer__links col-xs-12 col-lg-9">
+            {{ render '@dropdown-list' linkList }}
+        </section>
+    </div>
+    <section class="footer__bottom-bar {{ bottomBar.class }}" {{{ bottomBar.attributes }}}>
+        <div class="footer__bottom-bar-handler {{ bottomBar.handlerClass }}">
+            <div class="footer__social-handler {{ bottomBar.socialHandler }}">
+                <span class="footer__social-list-subtitle">
+                    {{ socialListSubtitle }}
+                </span>
+                {{ render '@list--icon' socialIconList merge=true }}
+            </div>
+
+            <small class="footer__copyright">
+                {{ copyrightText }}
+            </small>
+        </div>
+    </section>
+    {{ render '@cookie-message' }}
+</footer>
+
+<script src="{{ static 'footer.js' }}"></script>

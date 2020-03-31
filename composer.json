@@ -1,0 +1,6 @@
+{
+    "name": "sickdaflip/module-rational-components",
+    "description": "Components of the Rational theme for Magento 2",
+    "license": "MIT",
+    "type": "magento2-module"
+}

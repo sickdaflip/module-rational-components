@@ -1,0 +1,214 @@
+$filter__transition                               : $transition-base !default;
+
+// Category
+$filter__category-list-margin                     : 0 0 $spacer 0 !default;
+$filter__category-list-margin--nested             : 0 0 0 $spacer--large !default;
+$filter__category-list-margin--nested-second-level: 0 0 0 #{$spacer--large * 2} !default;
+$filter__category-link-padding                    : 14px 0 !default;
+$filter__category-link-color                      : $color-secondary !default;
+$filter__category-link-text-decoration            : underline !default;
+
+// Swatch
+$filter__swatch-size\@large                       : 25% !default;
+$filter__swatch-margin                            : 0 $spacer $spacer--medium $spacer !default;
+$filter__swatch-margin\@large                     : 0 0 $spacer--medium 0 !default;
+$filter__swatch-option-size                       : 48px !default;
+$filter__swatch-option-background                 : $white !default;
+$filter__swatch-option-color                      : $gray-dark !default;
+$filter__swatch-option-border                     : 3px solid $white !default;
+$filter__swatch-option-border-color-hover         : $color-primary !default;
+$filter__swatch-option-border-color--active       : $color-primary !default;
+
+// Label
+$filter__label-padding                            : $spacer--medium 0 !default;
+$filter__label-color-active                       : $color-primary !default;
+$filter__label-bg-color                           : $bg-color-base !default;
+
+// Color
+$filter__color-padding                            : 0 $spacer !default;
+$filter__color-size\@large                        : 25% !default;
+$filter__color-option-width                       : 56px !default;
+$filter__color-option-height                      : 80px !default;
+$filter__color-option-border                      : 2px solid transparent !default;
+$filter__color-option-after-top                   : 4px !default;
+$filter__color-option-after-left                  : 8px !default;
+$filter__color-option-after-size                  : 40px !default;
+$filter__color-option-after-border-radius         : 100% !default;
+$filter__color-option-after-border-color          : $color-primary !default;
+$filter__color-sample-size                        : 32px !default;
+$filter__color-sample-margin                      : $spacer !default;
+$filter__color-sample-border                      : 1px solid $gray-lighter !default;
+$filter__color-sample-border-radius               : 100% !default;
+$filter__color-label-font-size                    : $font-size-small !default;
+$filter__color-label-color                        : $gray-darkest !default;
+
+// Divider
+$filter__divider-border-top                       : 1px solid $gray-light !default;
+
+// Range
+$filter__range-margin                             : 0 0 $spacer--medium 0 !default;
+
+.filter {
+    &__label {
+        padding: $filter__label-padding;
+
+        // to override dropdown-list styles
+        &[aria-expanded="false"]:hover,
+        &[aria-expanded="false"]:focus,
+        &[aria-expanded="true"]:hover,
+        &[aria-expanded="true"]:focus {
+            background-color: $filter__label-bg-color;
+            color: $filter__label-color-active;
+            .filter__label-title {
+                color: $filter__label-color-active;
+            }
+            & > .dropdown-list__icon {
+                fill: $filter__label-color-active;
+            }
+        }
+    }
+
+    &__label-title {
+        margin: 0;
+        text-transform: inherit;
+        color: inherit;
+        transition: $filter__transition;
+    }
+
+    &__category-list {
+        margin: $filter__category-list-margin;
+
+        &--nested {
+            margin: $filter__category-list-margin--nested;
+        }
+
+        &--nested-second-level {
+            margin: $filter__category-list-margin--nested-second-level;
+        }
+    }
+
+    &__category-item {
+        padding: 0;
+    }
+
+    &__category-link {
+        display: block;
+        padding: $filter__category-link-padding;
+        color: $filter__category-link-color;
+
+        &:hover,
+        &:focus {
+            text-decoration: $filter__category-link-text-decoration;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__swatch-item {
+        margin: $filter__swatch-margin;
+
+        @include mq($screen-l) {
+            display: flex;
+            justify-content: center;
+            flex-basis: $filter__swatch-size\@large;
+            margin: $filter__swatch-margin\@large;
+        }
+    }
+
+    &__swatch-option {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: $filter__swatch-option-size;
+        min-height: $filter__swatch-option-size;
+        border: $filter__swatch-option-border;
+        background-color: $filter__swatch-option-background;
+        color: $filter__swatch-option-color;
+        transition: $filter__transition;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            border-color: $filter__swatch-option-border-color-hover;
+        }
+
+        &--active {
+            border-color: $filter__swatch-option-border-color--active;
+        }
+    }
+
+    &__color-item {
+        padding: $filter__color-padding;
+
+        @include mq($screen-l) {
+            display: flex;
+            justify-content: center;
+            flex-basis: $filter__color-size\@large;
+        }
+    }
+
+    &__color-option {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: $filter__color-option-width;
+        width: $filter__color-option-width;
+        height: $filter__color-option-height;
+        max-height: $filter__color-option-height;
+        text-decoration: none;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: $filter__color-option-after-top;
+            left: $filter__color-option-after-left;
+            width: $filter__color-option-after-size;
+            height: $filter__color-option-after-size;
+            background-color: transparent;
+            border: $filter__color-option-border;
+            border-radius: $filter__color-option-after-border-radius;
+            transition: $filter__transition;
+        }
+
+        &--active,
+        &:hover,
+        &:focus {
+            text-decoration: none;
+
+            &:after {
+                border-color: $filter__color-option-after-border-color;
+            }
+        }
+    }
+
+    &__color-sample {
+        width: $filter__color-sample-size;
+        height: $filter__color-sample-size;
+        margin: $filter__color-sample-margin;
+        border: $filter__color-sample-border;
+        border-radius: $filter__color-sample-border-radius;
+    }
+
+    &__color-label {
+        max-width: 100%;
+        font-size: $filter__color-label-font-size;
+        color: $filter__color-label-color;
+        word-break: break-all;
+        text-align: center;
+    }
+
+    &__range {
+        margin: $filter__range-margin;
+    }
+
+    &__divider {
+        border-top: $filter__divider-border-top;
+    }
+}

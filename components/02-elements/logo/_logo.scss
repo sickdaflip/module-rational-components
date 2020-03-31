@@ -1,0 +1,36 @@
+$logo__max-width                : 150px !default;
+$logo__max-width\@medium        : 200px !default;
+$logo__max-width\@large         : 350px !default;
+$logo__image-height             : 20px !default;
+$logo__image-height\@medium     : 35px !default;
+$logo__image-height\@large      : 50px !default;
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex: 1 $logo__max-width;
+    justify-content: center;
+    max-width: $logo__max-width;
+
+    @include mq($screen-m) {
+        flex: 1 $logo__max-width\@medium;
+        max-width: $logo__max-width\@medium;
+    }
+
+    @include mq($screen-l) {
+        flex: 1 $logo__max-width\@large;
+        max-width: $logo__max-width\@large;
+    }
+
+    &__image {
+        height: $logo__image-height;
+
+        @include mq($screen-m) {
+            height: $logo__image-height\@medium;
+        }
+
+        @include mq($screen-l) {
+            height: $logo__image-height\@large;
+        }
+    }
+}

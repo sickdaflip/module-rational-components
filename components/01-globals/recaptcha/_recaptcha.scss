@@ -1,0 +1,7 @@
+$recaptcha__badge-z-index           : 100 !default;
+$recaptcha__badge__margin           : 0 0 $spacer--medium 0 !default;
+
+.grecaptcha-badge {
+    z-index: $recaptcha__badge-z-index;
+    margin: $recaptcha__badge__margin;
+}
